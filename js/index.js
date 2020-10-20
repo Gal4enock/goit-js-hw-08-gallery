@@ -5,10 +5,16 @@ const btn = document.querySelector('.lightbox__button');
 const img = document.querySelector('.lightbox__image');
 const overlay = document.querySelector('.lightbox__overlay');
 console.log(list);
-for (let picture of gallery) {
-  const { preview, original, description } = picture;
+
+// for (let picture of gallery) {
+//   const { preview, original, description } = picture;
+//   list.insertAdjacentHTML('beforeend', `<li class="gallery__item"><a class="gallery__link" href="${original}"><img class="gallery__image" src="${preview}" data-source="${original}" alt="${description}"/></a></li>`);
+// }
+
+gallery.map(element => {
+  const { preview, original, description } = element;
   list.insertAdjacentHTML('beforeend', `<li class="gallery__item"><a class="gallery__link" href="${original}"><img class="gallery__image" src="${preview}" data-source="${original}" alt="${description}"/></a></li>`);
-}
+})
 const getPicture = function (e) {
   e.preventDefault();
   lightBox.classList.add('is-open');
