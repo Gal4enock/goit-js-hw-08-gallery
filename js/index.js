@@ -15,6 +15,7 @@ gallery.map(element => {
   const { preview, original, description } = element;
   list.insertAdjacentHTML('beforeend', `<li class="gallery__item"><a class="gallery__link" href="${original}"><img class="gallery__image" src="${preview}" data-source="${original}" alt="${description}"/></a></li>`);
 })
+
 const getPicture = function (e) {
   e.preventDefault();
   lightBox.classList.add('is-open');
@@ -22,14 +23,14 @@ const getPicture = function (e) {
   img.setAttribute('src', `${link}`);
   btn.addEventListener('click', closeModal);
   overlay.addEventListener('click', closeModal);
-  
 }
+
 const closeModal = function () {
   lightBox.classList.remove('is-open');
   img.removeAttribute('src');
-  removeEventListener
   btn.removeEventListener('click', closeModal);
   overlay.removeEventListener('click', closeModal);
 }
+
 list.addEventListener('click', getPicture);
 
