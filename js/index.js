@@ -19,12 +19,17 @@ const getPicture = function (e) {
   e.preventDefault();
   lightBox.classList.add('is-open');
   const link = e.target.dataset.source;
-  img.setAttribute('src', `${link}`)
+  img.setAttribute('src', `${link}`);
+  btn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  
 }
 const closeModal = function () {
   lightBox.classList.remove('is-open');
-  img.removeAttribute('src')
+  img.removeAttribute('src');
+  removeEventListener
+  btn.removeEventListener('click', closeModal);
+  overlay.removeEventListener('click', closeModal);
 }
 list.addEventListener('click', getPicture);
-btn.addEventListener('click', closeModal);
-overlay.addEventListener('click', closeModal);
+
